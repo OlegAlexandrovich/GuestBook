@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='windows-1251' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:p="http://primefaces.org/ui"
+xmlns:h="http://xmlns.jcp.org/jsf/html">
+<body>
+    <ui:composition template="temp.xhtml">
+        <ui:define name="content">
+            <h:form id="logindexForm">
+                <p:panel>
+                    <p:panel id="messagePanel">
+                        <center>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputLabel for="title" value="Title:" style="font-weight:bold" />
+                                <p:inputText widgetVar="inputWidget" value="#{editBean.mess_title}" id="enter" />
+                            </h:panelGrid>
+                            <p:editor widgetVar="editorWidget" value="#{editBean.mess_content}" width="600"/>
+                            <p:spacer height="40"/>
+                            <p:commandButton value="Submit" update="GridForm"  action="#{editBean.insert_mess}" icon="ui-icon-disk" ajax="false" id="submit"/>
+                            <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+                            <p:commandButton value="Update" update="GridForm" icon="ui-icon-refresh" ajax="false" id="update"/>
+                        </center>
+                    </p:panel>
+                    <p:spacer/>
+                    <p:dataGrid var="mess" value="#{gridBean.messages}" columns="1"
+                                rows="12" paginator="true"
+                                paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                rowsPerPageTemplate="9,12,15">
+                        <p:panel id="messPanel" header="#{mess.mess_date}, title:#{mess.mess_title}">
+                            <h:panelGrid columns="2">
+                                <p:panel footer="#{mess.author_name}" style="text-align: center; margin-right: 30px">
+                                    <p:graphicImage value="#{mess.author_av}" height="105" width="105"/>
+                                </p:panel>
+                                <h:outputText value="#{mess.content}" escape="false" />
+                            </h:panelGrid>
+                        </p:panel>
+                    </p:dataGrid>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>

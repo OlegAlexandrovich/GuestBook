@@ -1,0 +1,46 @@
+.content
+{
+    position: absolute;
+    top: 320px;
+    border-radius: 100px;
+}
+
+body
+{
+    position: absolute;
+    top: 100px;
+    background-color: white;
+}
+.panelGrid
+{
+    border-radius: 10px;
+    width: 647px;
+    font-size: large;
+}
+.ui-panel
+{
+    border-radius: 10px;
+}
+.ui-datagrid-row
+{
+    border-radius: 100px; 
+}
+.loginWindow
+{
+    position: absolute;
+    top: 320px;
+    width: 190px;
+}
+.bro
+{   margin-left: -20px;
+    width: 186px;
+}
+.regForm
+{
+    width: 657px;
+}
+#profForm
+{
+    width: 701px;
+    height: 400px;
+}

@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        @import url("css/styles.css");
+    </style>
+    <title>GuestBook</title>
+</h:head>
+<h:body style="width: 900px; margin-left: 15%; margin-right: 15%; background-image: url(images/guestbook1.gif); background-attachment: fixed" >
+    <div id="top" style="background-color: rgba(0,0,0,0)">
+        <h:form>
+            <p:panel>
+                <div class="top">
+                    <p:commandLink action="logindex" ajax="false" style="margin: -10px">
+                        <p:graphicImage value="images/guestbook1.gif" style="border-width: 3px; border-radius: 5px; width: 875px"/>
+                    </p:commandLink>
+                </div>
+            </p:panel>
+        </h:form>
+    </div>
+    <div id="left" style="width: 182px; background-color: rgba(0,0,0,0)">
+        <h:form id="loginWindow">
+            <center>
+                <div class="loginWindow">
+                    <p:panel header="Welcome!">
+                        <p:growl showDetail="true" life="3000" />
+                        <h:panelGrid class="bro" columns="1">
+                            <p:panel header="Hello‚ #{loginBean.authUser.uname}!">
+                                <center>
+                                    <p:graphicImage value="#{loginBean.authUser.avatar}" height="105" width="105" />
+                                    <p:spacer/>
+                                    <h:outputText value="Registered: #{loginBean.authUser.regdate}"/>
+                                    <p:separator/>
+                                    <p:commandLink id="profile" value="Profile" action="profile" ajax="false" style="color: rgba(f,f,f,f)" />
+                                </center>
+                            </p:panel>
+                        </h:panelGrid>
+                        <p:spacer/>
+                        <p:commandLink id="exit" action="#{loginBean.logout}" value="Exit" style="color: rgba(f,f,f,f)" ajax="false"/>
+                    </p:panel>
+                </div>
+            </center>
+        </h:form>
+    </div>
+    <div class="content" style=" margin-left: 197px; background-color: rgba(0,0,0,0)">
+        <ui:insert name="content"></ui:insert>
+    </div>
+</h:body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='windows-1251' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+<body>
+    <ui:composition template="temp.xhtml">
+        <ui:define name="content">
+            <h:form id="profForm">
+                <p:panel >
+                    <h:panelGrid columns="3">
+                        <p:graphicImage value="#{loginBean.authUser.avatar}" width="100px"></p:graphicImage>
+                        <p:inputText id="avatarChange" value="#{profBean.new_av}" ></p:inputText>
+                        <p:spacer/>
+                        <h:outputText value="First name:"/>
+                        <h:outputText value="#{loginBean.authUser.first_name}" />
+                        <p:inputText  id="firstNameChange" value="#{profBean.new_first}" ></p:inputText>
+                        <h:outputText value="Second name:" />
+                        <h:outputText value="#{loginBean.authUser.last_name}" />
+                        <p:inputText  id="secondNameChange" value="#{profBean.new_last}" ></p:inputText>
+                        <h:outputText value="Email:" />
+                        <h:outputText value="#{loginBean.authUser.email}" />
+                        <p:inputText  id="emailChange" value="#{profBean.new_email}" ></p:inputText>
+                    </h:panelGrid>
+                    <p:commandLink id="saveChanges" action="#{profBean.update()}" update=":loginForm:msg" ajax="false" style="margin-left: 200px">
+                        <p:graphicImage value="images/ok.png" height="50" style="margin-top: 20px" title="Save changes"/>
+                    </p:commandLink>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>
+

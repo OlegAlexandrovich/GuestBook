@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+xmlns:h="http://xmlns.jcp.org/jsf/html"
+xmlns:p="http://primefaces.org/ui">
+    <h:head>
+    <title>GuestBookRegistration</title>
+        </h:head>
+        <body>
+    <ui:composition template="template.xhtml">
+        <ui:define name="content">
+            <h:form id="regForm">
+                <p:panel id="regPanel">
+                    <div class="regForm">
+                        <h:outputText value="First name: " />
+                        <p:spacer width="30px" height="5px"></p:spacer>
+                        <p:inputText id="firstNameInput" value="#{registrationBean.first_name}" ></p:inputText>
+                        <p:spacer width="300px" height="5px"></p:spacer>
+                        <h:outputText value="Second name: " />
+                        <p:spacer width="4px" height="30px"></p:spacer>
+                        <p:inputText id="secondNameInput" value="#{registrationBean.last_name}" ></p:inputText>
+                        <p:spacer width="300px" height="5px"></p:spacer>
+                        <h:outputText value="Email: *" />
+                        <p:spacer width="62px" height="30px"></p:spacer>
+                        <p:inputText id="emailInput" value="#{registrationBean.email}" ></p:inputText>
+                        <p:spacer width="300px" height="5px"></p:spacer>
+                        <h:outputText value="Login: *" />
+                        <p:spacer width="62px" height="30px"></p:spacer>
+                        <p:inputText id="unameInput" value="#{registrationBean.uname}" ></p:inputText>
+                        <p:spacer width="300px" height="5px"></p:spacer>
+                        <h:outputText value="Password: *" />
+                        <p:spacer width="28px" height="30px"></p:spacer>
+                        <p:password id="passwordInput" value="#{registrationBean.pass}" feedback="true" ></p:password>
+                        <p:spacer width="300px" height="5px"></p:spacer>
+                        <h:outputText value="Avatar: " />
+                        <p:spacer width="61px" height="30px"></p:spacer>
+                        <p:inputText id="avatarInput" value="#{registrationBean.avatar}" ></p:inputText>
+                        <p:spacer width="305px" height="5px"></p:spacer>
+                        <p:spacer width="165px" height="30px"></p:spacer>
+                        <p:commandButton id="regButton" value="Registrate" action="#{registrationBean.insert}" icon="ui-icon-pencil" update=":loginForm:msg" ajax="false">
+                        </p:commandButton>
+                    </div>
+                </p:panel>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</body>
+</html>
